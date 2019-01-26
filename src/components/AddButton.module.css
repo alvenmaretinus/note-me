@@ -1,0 +1,45 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-radius: 4px;
+  font-size: 34px;
+  color: #555;
+  border: 2px solid #555;
+  outline: none;
+  height: 60px;
+  cursor: pointer;
+  background-color: #ddd;
+  transition: background-color .3s;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+.button:hover > .icon::before,
+.button:hover > .icon::after {
+  background-color: #fff;
+}
+
+.icon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.icon::before,
+.icon::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 100%;
+  background-color: #555;
+  transition: background-color .3s;
+}
+
+.icon::before {
+  left: 0;
+  transform: rotate(90deg) translateY(-50%);
+}
