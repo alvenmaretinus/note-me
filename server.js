@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const initConnection = require('./connection');
 const Note = require('./models/note');
 
@@ -8,6 +9,7 @@ initConnection();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors());
 
 app.listen(3001, () => {
   console.log('Server running in 3001');
@@ -45,10 +47,18 @@ app.post('/notes', (req, res) => {
 app.patch('/notes/:id', (req, res) => {
   const { message, status } = req.body;
   const { id } = req.params;
+  const attr = {};
+  
+  if (message !== undefined) {
+    attr.message = message;
+  }
+  if (status !== undefined) {
+    attr.status = status;
+  }
 
   Note.findByIdAndUpdate(
     id,
-    { message, status },
+    { $set: attr },
     { new: true },
     (err, note) => {
       if (err) {

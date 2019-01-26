@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 
-const url = 'mongodb://alvenmaretinus:123456@localhost:27017/note-me';
+const dbUsername = 'alvenmaretinus';
+const dbPassword = '123456';
+const dbAddress = 'localhost:27017';
+const dbName = 'note-me';
+
+const url = `mongodb://${dbUsername}:${dbPassword}@${dbAddress}/${dbName}`;
 
 const connection = () => mongoose.connect(url, {
   useNewUrlParser: true
