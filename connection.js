@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
-const dbUsername = 'alvenmaretinus';
-const dbPassword = '123456';
-const dbAddress = 'localhost:27017';
+const dbUsername = 'note-me';
+const dbPassword = 'note-me123';
+const dbAddress = 'ds213715.mlab.com:13715';
 const dbName = 'note-me';
 
 const url = `mongodb://${dbUsername}:${dbPassword}@${dbAddress}/${dbName}`;
